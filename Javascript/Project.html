@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Character Generator</title>
+</head>
+<body>
+    <h1> Star Wars Character Generator</h1>
+
+    <strong>Name:</strong>
+    <div id="name">...</div>
+
+    <strong>Eyecolor:</strong>
+    <div id="eyecolor">...</div>
+
+    <strong>Birthyear:</strong>
+    <div id="birthyear">...</div>
+
+    <button class="getRandomCharacter">Randomise!</button>
+
+
+    <script>
+        const name = document.getElementById("name");
+        const eyecolor = document.getElementById("eyecolor");
+        const birthyear = document.getElementById("birthyear");
+
+
+
+
+        const button = document.querySelector(".getRandomCharacter");
+        button.addEventListener('click',(e) =>{
+            e.preventDefault()
+           //console.log("CLICKED")
+
+        // Random character selector from SWAPI
+
+        const randomNumber = Math.ceil(Math.random()* 83)
+        console.log(randomNumber);
+
+        fetch(`https://swapi.dev/api/people/${randomNumber}/`)
+            .then(response => response.json())
+            .then(character => {
+            console.log(character);
+            name.innerHTML = character['name'];
+            eyecolor.innerHTML = character['eye_color'];
+            birthyear.innerHTML = character['birth_year'];
+            
+        })
+
+    })
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

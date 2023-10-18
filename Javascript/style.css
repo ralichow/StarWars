@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+
+}
+#image img{
+    width: 30%;
+    height: auto;
+    border-radius: 20%;
+
+
+}
+
+body{
+
+    background-color: yellow;
+    text-align: center;
+}
