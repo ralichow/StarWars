@@ -1,30 +1,28 @@
-/*
-function addNumbers(N1,N2){
-    const total = N1 + N2;
-    return total;
 
-}
+const nameElement = document.getElementById("name");
+const eyecolorElement = document.getElementById("eyecolor"); 
+const bornElement = document.getElementById("born");
+const imageElement = document.getElementById("image").querySelector("img"); // Targeting the img element
 
-const addedTotal = addNumbers(1,2);
+const button = document.querySelector(".getRandomCharacter");
+button.addEventListener('click', (e) => {
+    e.preventDefault();
 
-console.log("Hello");
-*/
+    fetch("https://akabab.github.io/starwars-api/api/all.json")
+        .then(response => response.json())
+        .then(characters => {
+            const randomCharacter = getRandomElement(characters);
 
-/*
+            nameElement.innerHTML = randomCharacter['name'];
+            eyecolorElement.innerHTML = randomCharacter['eyeColor'];
+            bornElement.innerHTML = randomCharacter['born'];
+            imageElement.src = randomCharacter['image']; // Set the src attribute of the img element
 
-function addNumbers(Name, ...numbers){
+        })
+        .catch(error => console.error('Error fetching data:', error));
 
-    let total= 0;
-
-    for(index in numbers){
-
-        total = total + numbers[index]
-      
+    function getRandomElement(arr) {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        return arr[randomIndex];
     }
-    return `${Name}: the total is ${total}`;
-
-} 
-
-const newTotal = addNumbers("RAFI",1,4,5,3);
-console.log(newTotal);
-/*
+});
