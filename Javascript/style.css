@@ -3,7 +3,7 @@ h1{
 
 }
 #image img{
-    width: 30%;
+    width: 20%;
     height: auto;
     border-radius: 20%;
 
@@ -16,17 +16,24 @@ body{
     text-align: center;
 }
 
-table{
+/*table{
 
     border: black;
     border-style: dotted;
 }
+*/
 td{
-    border-style: dashed;
+
+    padding: auto;
+    border-color: brown;
+    border-style: solid;
 }
 
 .centered-element{
-    margin: 0 auto; /* This centers the block element (div) */
-    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Optionally set the height of the container */
 
 }
