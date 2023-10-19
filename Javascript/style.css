@@ -15,3 +15,18 @@ body{
     background-color: yellow;
     text-align: center;
 }
+
+table{
+
+    border: black;
+    border-style: dotted;
+}
+td{
+    border-style: dashed;
+}
+
+.centered-element{
+    margin: 0 auto; /* This centers the block element (div) */
+    text-align: center;
+
+}
